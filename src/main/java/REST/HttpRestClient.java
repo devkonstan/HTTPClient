@@ -15,10 +15,12 @@ public class HttpRestClient {
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
         con.addRequestProperty("User-Agent", "Mozilla/5.0");
+
         int status = con.getResponseCode();
         System.out.println(status);
-        Gson gson = new Gson();
+
         String response = readResponse(con);
+        Gson gson = new Gson();
         People people = gson.fromJson(response, People.class);
         System.out.println("Deserialize: ");
         System.out.println(people);
@@ -34,6 +36,7 @@ public class HttpRestClient {
             content.append(inputLine);
         }
         in.close();
+
         System.out.println(content);
         return content.toString();
     }

@@ -3,7 +3,6 @@ package REST;
 import com.google.gson.annotations.SerializedName;
 
 public class People {
-
     private String name;
     private String height;
     private String mass;
